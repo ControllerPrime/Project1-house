@@ -1,20 +1,20 @@
 /**
- * This class represents a simple picture. You can draw the picture using
- * the draw method. But wait, there's more: being an electronic picture, it
- * can be changed. You can set it to black-and-white display and back to
- * colors (only after it's been drawn, of course).
+ * This class draws a simple picture of a black dessert with a Pyramid, a person, 
+ * a cloud and a sun.
  *
- * This class was written as an early example for teaching Java with BlueJ.
- * 
- * @author  Michael Kšlling and David J. Barnes
- * @version 2011.07.31
+ * @author  James Sepanak
+ * @version 2017.09.18
  */
 public class Picture
 {
     private Square wall;
     private Square window;
-    private Triangle roof;
+    private Triangle pyramid;
     private Circle sun;
+    private Square sky;
+    private Person guy;
+    private Triangle behind;
+    private Triangle something;
 
     /**
      * Constructor for objects of class Picture
@@ -30,30 +30,52 @@ public class Picture
     public void draw()
     {
         wall = new Square();
-        wall.moveHorizontal(-140);
-        wall.moveVertical(20);
-        wall.changeSize(120);
+        wall.changeColor("black");
+        wall.moveHorizontal(-310);
+        wall.moveVertical(100);
+        wall.changeSize(500);
         wall.makeVisible();
+        
+        sky = new Square();
+        sky.changeColor("blue");
+        sky.moveHorizontal(-310);
+        sky.moveVertical(-400);
+        sky.changeSize(500);
+        sky.makeVisible();
         
         window = new Square();
         window.changeColor("black");
         window.moveHorizontal(-120);
         window.moveVertical(40);
-        window.changeSize(40);
+        window.changeSize(10);
         window.makeVisible();
 
-        roof = new Triangle();  
-        roof.changeSize(60, 180);
-        roof.moveHorizontal(20);
-        roof.moveVertical(-60);
-        roof.makeVisible();
+        pyramid = new Triangle();
+        pyramid.changeColor("yellow");
+        pyramid.changeSize(200, 250);
+        pyramid.moveHorizontal(20);
+        pyramid.moveVertical(-60);
+        pyramid.makeVisible();
 
         sun = new Circle();
-        sun.changeColor("yellow");
-        sun.moveHorizontal(100);
-        sun.moveVertical(-40);
+        sun.changeColor("red");
+        sun.moveHorizontal(215);
+        sun.moveVertical(-115);
         sun.changeSize(80);
         sun.makeVisible();
+        
+        guy = new Person();
+        guy.moveHorizontal(100);
+        guy.moveVertical(30);
+        guy.changeColor("green");
+        guy.makeVisible();
+        
+        behind = new Triangle();
+        behind.changeColor("yellow");
+        behind.moveHorizontal(-135);
+        behind.moveVertical(0);
+        behind.changeSize(100, 110);
+        behind.makeVisible();
     }
 
     /**
@@ -63,10 +85,13 @@ public class Picture
     {
         if (wall != null)   // only if it's painted already...
         {
-            wall.changeColor("black");
+            wall.changeColor("white");
             window.changeColor("white");
-            roof.changeColor("black");
+            sky.changeColor("white");
+            pyramid.changeColor("black");
+            behind.changeColor("black");
             sun.changeColor("black");
+            guy.changeColor("black");
         }
     }
 
@@ -77,10 +102,13 @@ public class Picture
     {
         if (wall != null)   // only if it's painted already...
         {
-            wall.changeColor("red");
+            wall.changeColor("black");
             window.changeColor("black");
-            roof.changeColor("green");
-            sun.changeColor("yellow");
+            sky.changeColor("blue");
+            pyramid.changeColor("yellow");
+            behind.changeColor("yellow");
+            sun.changeColor("red");
+            guy.changeColor("green");
         }
     }
 }
